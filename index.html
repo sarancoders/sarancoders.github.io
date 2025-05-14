@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet"/>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <!-- FontAwesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+
+
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f172a;
+      color: white;
+    }
+    .navbar { background-color: #020617; }
+    .nav-link {
+      color: white !important;
+      margin-right: 20px;
+      transition: all 0.3s;
+    }
+    .nav-link.active { color: cyan !important; font-weight: bold; }
+
+    @keyframes slideIn {
+      from { transform: translateY(-10px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .slideIn { animation: slideIn 0.6s ease; }
+    .bounce { animation: bounce 0.6s ease; }
+    .pulse { animation: pulse 0.6s ease; }
+
+    .main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 120px 50px 50px;
+    }
+
+    .main-text h2 { font-size: 36px; margin: 0; }
+    .main-text h1 { font-size: 48px; margin: 10px 0; }
+    .main-text p { font-size: 16px; margin: 20px 0; }
+
+    .social-icons {
+      display: flex;
+      gap: 20px;
+    }
+    .social-icons i {
+      font-size: 24px;
+      color: cyan;
+      cursor: pointer;
+    }
+
+    .profile-img, .profile-glow {
+      border-radius: 50%;
+      padding: 8px;
+      background: linear-gradient(135deg, #00f2fe, #4facfe, #5f2c82);
+      margin-top: 30px;
+    }
+    .profile-img img, .profile-glow img {
+      border-radius: 50%;
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .profile-glow {
+      box-shadow: 0 0 40px rgba(0, 255, 255, 0.6);
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      0% { box-shadow: 0 0 30px rgba(0, 255, 255, 0.4); }
+      100% { box-shadow: 0 0 60px rgba(0, 255, 255, 0.8); }
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 100px 50px;
+    }
+
+    .about-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+    }
+
+    .about-text h2 {
+      font-size: 36px;
+      font-weight: bold;
+    }
+    .about-text h2 span { color: cyan; }
+    .about-text h4 { font-weight: 600; color: #ccc; }
+    .about-text p {
+      font-size: 16px;
+      margin-top: 20px;
+      line-height: 1.8;
+    }
+
+    .service-card {
+      background-color: #112240;
+      border-radius: 20px;
+      padding: 30px;
+      text-align: left;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.1);
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 40px rgba(0, 255, 255, 0.6);
+    }
+
+    .service-icon {
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: #00ffff;
+    }
+
+    .service-title { font-size: 1.5rem; font-weight: 600; }
+    .service-text { font-size: 0.9rem; margin-top: 10px; }
+
+    .service-btn {
+      background: #00ffff;
+      color: #000;
+      border: none;
+      border-radius: 30px;
+      padding: 10px 25px;
+      font-weight: 500;
+      margin-top: 20px;
+      transition: background 0.3s ease;
+    }
+    .service-btn:hover {
+      background: #00e0e0;
+      color: #000;
+    }
+
+    /* Skills Section */
+    #skills h2 span { color: #00ffff; }
+
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    /* Technical Skills - Bars */
+    .tech-skills {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .tech-skills h3 {
+      margin-bottom: 30px;
+      text-decoration: underline;
+    }
+
+    .skill-bar {
+      margin-bottom: 25px;
+    }
+
+    .skill-bar span {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 500;
+    }
+
+    .bar-track {
+      width: 100%;
+      height: 10px;
+      background: #1e293b;
+      border-radius: 20px;
+      margin-top: 5px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background: #00ffff;
+      width: 0;
+      transition: width 1.5s ease-in-out;
+    }
+
+    /* Professional Skills - Circles */
+    .pro-skills {
+      flex: 1;
+      min-width: 280px;
+      text-align: center;
+    }
+
+    .pro-skills h3 {
+      margin-bottom: 30px;
+      text-decoration: underline;
+    }
+
+    .circle-skill {
+      display: inline-block;
+      margin: 15px;
+      position: relative;
+      width: 120px;
+      height: 120px;
+    }
+
+    .circle-skill svg {
+      transform: rotate(-90deg);
+    }
+
+    .circle-skill circle {
+      fill: none;
+      stroke-width: 10;
+    }
+
+    .circle-skill .bg {
+      stroke: #1e293b;
+    }
+
+    .circle-skill .progress {
+      stroke: #00ffff;
+      stroke-dasharray: 314;
+      stroke-dashoffset: 314;
+      transition: stroke-dashoffset 1.5s ease;
+    }
+
+    .circle-skill .percent {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: cyan;
+      font-weight: bold;
+    }
+
+    .skill-label {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    @media (max-width: 768px) {
+      .skills-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    /* Contact Section */
+    
+    .contact-input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid transparent;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+.contact-input:focus {
+  border-color: cyan;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.glow-button {
+  background-color: cyan;
+  color: #000;
+  font-weight: bold;
+  border-radius: 50px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+  transition: all 0.3s ease-in-out;
+}
+.glow-button:hover {
+  background-color: #00e6e6;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 1);
+  transform: scale(1.05);
+}
+
+/* Animations */
+.animate-fade {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+}
+.animate-rise {
+  opacity: 0;
+  transform: scale(0.95);
+  animation: riseIn 1.2s ease forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes riseIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.social-icons i {
+  transition: transform 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.social-icons i:hover {
+  transform: scale(1.3) rotate(5deg);
+  color: cyan !important;
+}
+
+
+  </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="100" tabindex="0">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid px-5">
+      <a class="navbar-brand text-white fw-bold" href="#">Portfolio.</a>
+      <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  
+  <!-- Home -->
+  <section id="home" class="main">
+    <div class="main-text col-md-6">
+      <h2>Hello, It's Me</h2>
+      <h1>SARANRAJ</h1>
+<h2>And I'm a <span id="typing"></span></h2>
+
+      <p>I'm a web developer To build user-friendly websites and applications using both front-end and back-end technologies, while learning and growing as a Full Stack Developer.</p>
+      <div class="social-icons">
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-whatsapp"></i>
+        <i class="fab fa-instagram"></i>
+      </div>
+    </div>
+ <div class="col-md-6 d-flex justify-content-center align-items-center">
+  <div class="profile-glow">
+ <img src="saran.jpg" alt="Profile">
+
+  </div>
+</div>
+
+</div>
+
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about-section">
+    <div class="profile-glow">
+<img src="cs.jpg" alt="Profile">
+
+    </div>
+    <div class="about-text col-md-6">
+      <h2>About <span>Me</span></h2>
+      <h4>Full Stack Developer!</h4>
+      <p>
+ To leverage my experience in computer hardware testing and web development to create reliable, high-performance digital solutions, while continuously learning and contributing to innovative tech projects.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="text-center py-5">
+    <div class="container">
+      <h2 class="mb-5">My <span>Services</span></h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="service-card">
+            <div class="service-icon">💡</div>
+            <h4 class="service-title">Computer Hardware Testing</h4>
+            <p class="service-text">To use my hands-on experience in hardware testing to support IT infrastructure, reduce system failures, and improve overall efficiency.</p>
+           
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card">
+            <div class="service-icon">🖥️</div>
+            <h4 class="service-title">Full Stack Developer</h4>
+            <p class="service-text">To work as a Full Stack Developer in a collaborative environment where I can enhance my technical abilities in JavaScript, React, Node.js, and databases, while contributing to impactful software solutions.</p>
+          
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card">
+            <div class="service-icon">📱</div>
+            <h4 class="service-title">Content Creater</h4>
+            <p class="service-text">To work as a Social Media Content Creator where I can craft visually appealing and impactful content tailored to platform-specific audiences, helping build community and brand loyalty.</p>
+   
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+ <section id="skills" class="text-center">
+    <h2 class="mb-5">My <span>Skills</span></h2>
+    <div class="skills-container">
+      <!-- Technical Skills -->
+      <div class="tech-skills">
+        <h3>Technical Skills</h3>
+
+        <div class="skill-bar">
+          <span><label>HTML</label><label>90%</label></span>
+          <div class="bar-track"><div class="bar-fill" style="width: 90%;"></div></div>
+        </div>
+        <div class="skill-bar">
+          <span><label>CSS</label><label>80%</label></span>
+          <div class="bar-track"><div class="bar-fill" style="width: 80%;"></div></div>
+        </div>
+        <div class="skill-bar">
+          <span><label>JavaScript</label><label>85%</label></span>
+          <div class="bar-track"><div class="bar-fill" style="width: 85%;"></div></div>
+        </div>
+        <div class="skill-bar">
+          <span><label>Bootstrap</label><label>75%</label></span>
+          <div class="bar-track"><div class="bar-fill" style="width: 75%;"></div></div>
+        </div>
+        <div class="skill-bar">
+          <span><label>React</label><label>70%</label></span>
+          <div class="bar-track"><div class="bar-fill" style="width: 70%;"></div></div>
+        </div>
+      </div>
+
+      <!-- Professional Skills -->
+      <div class="pro-skills">
+        <h3>Professional Skills</h3>
+
+        <div class="circle-skill">
+          <svg width="120" height="120">
+            <circle class="bg" cx="60" cy="60" r="50" />
+            <circle class="progress" cx="60" cy="60" r="50" style="stroke-dashoffset: calc(314 - (90 * 3.14))" />
+          </svg>
+          <div class="percent">90%</div>
+          <div class="skill-label">Creativity</div>
+        </div>
+
+        <div class="circle-skill">
+          <svg width="120" height="120">
+            <circle class="bg" cx="60" cy="60" r="50" />
+            <circle class="progress" cx="60" cy="60" r="50" style="stroke-dashoffset: calc(314 - (70 * 3.14))" />
+          </svg>
+          <div class="percent">70%</div>
+          <div class="skill-label">Communication</div>
+        </div>
+
+        <div class="circle-skill">
+          <svg width="120" height="120">
+            <circle class="bg" cx="60" cy="60" r="50" />
+            <circle class="progress" cx="60" cy="60" r="50" style="stroke-dashoffset: calc(314 - (80 * 3.14))" />
+          </svg>
+          <div class="percent">80%</div>
+          <div class="skill-label">Teamwork</div>
+        </div>
+
+        <div class="circle-skill">
+          <svg width="120" height="120">
+            <circle class="bg" cx="60" cy="60" r="50" />
+            <circle class="progress" cx="60" cy="60" r="50" style="stroke-dashoffset: calc(314 - (75 * 3.14))" />
+          </svg>
+          <div class="percent">75%</div>
+          <div class="skill-label">Problem Solving</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Contact -->
+<section id="contact" class="contact-section py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2>Contact <span style="color: cyan;">Me</span></h2>
+     
+    </div>
+    <div class="row justify-content-center align-items-stretch g-4">
+      <!-- Contact Info -->
+      <div class="col-md-5">
+        <div class="card h-100 bg-dark text-white shadow-lg p-4 animate-fade">
+          <h4 class="mb-4">Get in Touch</h4>
+          <p><i class="fas fa-envelope text-info me-2"></i> saranrajsaran7867.com</p>
+          <p><i class="fas fa-phone text-info me-2"></i> +91-7867901177</p>
+          <p><i class="fas fa-map-marker-alt text-info me-2"></i> Pudhucherry, India</p>
+         <div class="mt-4 d-flex gap-3 social-icons">
+  <i class="fab fa-facebook fa-lg text-info animate__animated animate__fadeInUp"></i>
+  <i class="fab fa-whatsapp fa-lg text-success animate__animated animate__fadeInUp animate__delay-1s"></i>
+  <i class="fab fa-instagram fa-lg text-danger animate__animated animate__fadeInUp animate__delay-2s"></i>
+</div>
+
+        </div>
+      </div>
+
+      <script>
+  const scrollSpy = new bootstrap.ScrollSpy(document.body, {
+    target: '#navbarNav',
+    offset: 100
+  });
+</script>
+
+<!-- Contact Form -->
+<div class="col-md-7">
+  <div class="card bg-dark text-white shadow-lg p-4 animate-rise">
+    <form>
+      <div class="mb-3">
+        <input type="text" class="form-control contact-input" placeholder="Your Name" required />
+      </div>
+      <div class="mb-3">
+        <input type="email" class="form-control contact-input" placeholder="Your Email" required />
+      </div>
+      <div class="mb-3">
+        <textarea rows="5" class="form-control contact-input" placeholder="Your Message" required></textarea>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-info btn-lg px-4 glow-button">Send Message</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+</section>
+
+
+
+  <script>    
+    const roles = ['Full stack developer', ];
+    let index = 0, charIndex = 0;
+    const typingElement = document.getElementById('typing');
+    function type() {
+      if (charIndex < roles[index].length) {
+        typingElement.innerHTML += roles[index].charAt(charIndex++);
+        setTimeout(type, 100);
+      } else {
+        setTimeout(erase, 2000);
+      }
+    }
+    function erase() {
+      if (charIndex > 0) {
+        typingElement.innerHTML = roles[index].substring(0, --charIndex);
+        setTimeout(erase, 50);
+      } else {
+        index = (index + 1) % roles.length;
+        setTimeout(type, 100);
+      }
+    }
+    document.addEventListener('DOMContentLoaded', type);
+  </script>
+
+  <!-- Navbar Animation -->
+  <script>
+    const navLinks = document.querySelectorAll('.nav-link');
+    const animationMap = {
+      '#home': 'slideIn',
+      '#about': 'bounce',
+      '#services': 'pulse',
+      '#skills': 'slideIn',
+      '#contact': 'pulse'
+    };
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = '#' + entry.target.id;
+          navLinks.forEach(link => {
+            link.classList.remove('slideIn', 'bounce', 'pulse');
+            if (link.getAttribute('href') === id) {
+              link.classList.add(animationMap[id]);
+            }
+          });
+        }
+      });
+    }, { threshold: 0.6 });
+    document.querySelectorAll('section').forEach(section => observer.observe(section));
+  </script>
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
