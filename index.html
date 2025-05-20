@@ -279,7 +279,7 @@
     /* Contact Section */
     
     .contact-input {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(95, 143, 95, 0.05);
   border: 2px solid transparent;
   color: white;
   padding: 15px;
@@ -289,7 +289,7 @@
 .contact-input:focus {
   border-color: cyan;
   box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(13, 184, 207, 0.1);
 }
 
 .glow-button {
@@ -297,7 +297,7 @@
   color: #000;
   font-weight: bold;
   border-radius: 50px;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+  box-shadow: 0 0 20px rgba(181, 182, 172, 0.6);
   transition: all 0.3s ease-in-out;
 }
 .glow-button:hover {
@@ -373,11 +373,27 @@
       <h1>SARANRAJ</h1>
 <h2>And I'm a <span id="typing"></span></h2>
 
-      <p>I'm a web developer To build user-friendly websites and applications using both front-end and back-end technologies, while learning and growing as a Full Stack Developer.</p>
+      <p>I'm a Full stack developer To build user-friendly websites and applications using both front-end and back-end technologies, while learning and growing as a Full Stack Developer.</p>
       <div class="social-icons">
-        <i class="fab fa-facebook"></i>
-        <i class="fab fa-whatsapp"></i>
-        <i class="fab fa-instagram"></i>
+  
+        <a href="https://www.facebook.com/profile.php?id=100041781020755" target="_blank">
+  <i class="fab fa-facebook"></i>
+</a>
+
+
+  <a href="https://wa.me/919876543210" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+        
+    <a href="https://www.instagram.com/voice_of__saran?igsh=MXNqM2tjcWRpdXFsMQ==" target="_blank">
+  <i class="fab fa-instagram"></i>
+</a>
+
+
+</div>
+
+
       </div>
     </div>
  <div class="col-md-6 d-flex justify-content-center align-items-center">
@@ -406,38 +422,48 @@
     </div>
   </section>
 
-  <!-- Services -->
-  <section id="services" class="text-center py-5">
-    <div class="container">
-      <h2 class="mb-5">My <span>Services</span></h2>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="service-card">
-            <div class="service-icon">💡</div>
-            <h4 class="service-title">Computer Hardware Testing</h4>
-            <p class="service-text">To use my hands-on experience in hardware testing to support IT infrastructure, reduce system failures, and improve overall efficiency.</p>
-           
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-card">
-            <div class="service-icon">🖥️</div>
-            <h4 class="service-title">Full Stack Developer</h4>
-            <p class="service-text">To work as a Full Stack Developer in a collaborative environment where I can enhance my technical abilities in JavaScript, React, Node.js, and databases, while contributing to impactful software solutions.</p>
-          
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-card">
-            <div class="service-icon">📱</div>
-            <h4 class="service-title">Content Creater</h4>
-            <p class="service-text">To work as a Social Media Content Creator where I can craft visually appealing and impactful content tailored to platform-specific audiences, helping build community and brand loyalty.</p>
-   
-          </div>
+<section id="services" class="text-center py-5">
+  <div class="container">
+    <h2 class="mb-5">My <span>Services</span></h2>
+    <!-- 1) align-items-stretch on row -->
+    <div class="row g-4 align-items-stretch">
+      
+      <!-- 2) d-flex on column -->
+      <div class="col-md-4 d-flex">
+        <!-- 3) flex-fill on card -->
+        <div class="service-card flex-fill">
+          <div class="service-icon">💡</div>
+          <h4 class="service-title">Computer Hardware Testing</h4>
+          <p class="service-text">
+            To use my hands-on experience in hardware testing to support IT infrastructure, reduce system failures, and improve overall efficiency.
+          </p>
         </div>
       </div>
+
+      <div class="col-md-4 d-flex">
+        <div class="service-card flex-fill">
+          <div class="service-icon">🖥️</div>
+          <h4 class="service-title">Full Stack Developer</h4>
+          <p class="service-text">
+            To work as a Full Stack Developer in a collaborative environment where I can enhance my technical abilities in JavaScript, React, Node.js, and databases, while contributing to impactful software solutions.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-4 d-flex">
+        <div class="service-card flex-fill">
+          <div class="service-icon">📱</div>
+          <h4 class="service-title">Content Creator</h4>
+          <p class="service-text">
+            To work as a Social Media Content Creator where I can craft visually appealing and impactful content tailored to platform-specific audiences, helping build community and brand loyalty.
+          </p>
+        </div>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
+
   
  <section id="skills" class="text-center">
     <h2 class="mb-5">My <span>Skills</span></h2>
@@ -529,8 +555,9 @@
          <div class="mt-4 d-flex gap-3 social-icons">
   <i class="fab fa-facebook fa-lg text-info animate__animated animate__fadeInUp"></i>
   <i class="fab fa-whatsapp fa-lg text-success animate__animated animate__fadeInUp animate__delay-1s"></i>
-  <i class="fab fa-instagram fa-lg text-danger animate__animated animate__fadeInUp animate__delay-2s"></i>
+  <i class="fab fa-instagram fa-lg text-danger animate__animated animate__fadeInUp animate__delay-2s"><a href="https://www.instagram.com/voice_of__saran?igsh=MXNqM2tjcWRpdXFsMQ==" target="_blank"></a></i>
 </div>
+
 
         </div>
       </div>
@@ -541,6 +568,7 @@
     offset: 100
   });
 </script>
+
 
 <!-- Contact Form -->
 <div class="col-md-7">
@@ -561,7 +589,6 @@
     </form>
   </div>
 </div>
-
 </section>
 
 
@@ -621,3 +648,4 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
